@@ -179,7 +179,7 @@ function genResultGrid() {
     </div>
   </Transition>
   <header>
-    <h1>VVORDLE</h1>
+    <h1>Tajik Wordle</h1>
     <a
       id="source-link"
       href="https://github.com/yyx990803/vue-wordle"
