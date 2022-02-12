@@ -238,8 +238,8 @@ function genResultGrid() {
   left: 50%;
   top: 80px;
   color: #fff;
-  background-color: rgba(0, 0, 0, 0.85);
-  padding: 16px 20px;
+  background-color: rgba(0, 0, 0, 0.95);
+  padding: 20px 50px;
   z-index: 2;
   border-radius: 4px;
   transform: translateX(-50%);

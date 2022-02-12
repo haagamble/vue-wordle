@@ -5,10 +5,10 @@ import {answers} from "./answer-words"
 
 export function getDayNumber() {
   const now = new Date()
-  // word list start on Feb 1st
+  // word list start on Feb 12th
   const start = new Date(2022, 1, 12)
   const diff = Number(now) - Number(start)
-  let day = Math.floor(diff / (1000 * 60 * 60 * 24))
+  let day = Math.floor(diff / (1000 * 60 * 60 * 24)) + 1
   while (day > answers.length) {
     day -= answers.length
   }
@@ -16,7 +16,8 @@ export function getDayNumber() {
 }
 
 export function getWordOfTheDay(day: number) {
-  return answers[day]
+  // -1 to get the zeroth item on list
+  return answers[(day - 1)]
 }
 
 export const allWords = wordbank
