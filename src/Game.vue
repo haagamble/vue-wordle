@@ -58,7 +58,7 @@ function fillTile(letter: string) {
       tile.letter = letter
       break
     }
-  }/
+  }
 }
 
 function clearTile() {
