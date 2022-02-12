@@ -20,4 +20,10 @@ export function getWordOfTheDay(day: number) {
   return answers[(day - 1)]
 }
 
+export function getRandomWord() {
+  let length = answers.length;
+  let randint = Math.floor((Math.random() * length) + 1);
+  return answers[randint]
+}
+
 export const allWords = wordbank

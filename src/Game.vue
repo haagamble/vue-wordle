@@ -1,13 +1,20 @@
 <script setup lang="ts">
 import { onUnmounted } from 'vue'
-import { getWordOfTheDay, getDayNumber, allWords } from './words'
+import { getWordOfTheDay, getDayNumber, getRandomWord, allWords } from './words'
 import Keyboard from './Keyboard.vue'
 import { LetterState } from './types'
 
 // Get word of the day
 // Modifed as in github.com/digitaltolkien/vue-wordle
-const dayNumber = getDayNumber()
-const answer = getWordOfTheDay(dayNumber)
+let daily = true;
+
+if (daily == true) {
+  const dayNumber = getDayNumber()
+  const answer = getWordOfTheDay(dayNumber)
+}
+else {
+  const answer = getRandomWord()
+}  
 
 // Board state. Each tile is represented as { letter, state }
 const board = $ref(
@@ -46,7 +53,7 @@ onUnmounted(() => {
 function onKey(key: string) {
   if (!allowInput) return
   if (/^[ЁёА-яқҷҳӣӯғҚҶҲӢӮҒ]$/.test(key)) {
-    fillTile(key.toLowerCase())
+    fillTile(key.toUpperCase())
   } else if (key === 'Backspace') {
     clearTile()
   } else if (key === 'Enter') {
@@ -171,6 +178,10 @@ function genResultGrid() {
     })
     .join('\n')
 }
+
+function toggle() {
+  daily = !daily
+}
 </script>
 
 <template>
@@ -190,6 +201,16 @@ function genResultGrid() {
       >Source</a
     >
   </header>
+  <div id="mode">
+    <button class="modebutton" 
+      @click="toggle"
+      :class="[daily ? 'active' : '']"
+    >Random</button>
+    <button class="modebutton" 
+      @click="toggle"
+      :class="[daily ? 'active' : '']"
+    >Daily Word</button>
+  </div>
   <div id="board">
     <div
       v-for="(row, index) in board"
@@ -349,6 +370,10 @@ function genResultGrid() {
 
 .jump .tile .back {
   animation: jump 0.5s;
+}
+
+.active {
+  background-color: green;
 }
 
 @keyframes jump {
