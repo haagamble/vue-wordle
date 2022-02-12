@@ -3,15 +3,19 @@ import {answers} from "./answer-words"
 
 //const defaultMessage = ' Using word of the day instead.'
 
-export function getWordOfTheDay() {
+export function getDayNumber() {
   const now = new Date()
   // word list start on Feb 1st
-  const start = new Date(2022, 1, 1)
+  const start = new Date(2022, 1, 12)
   const diff = Number(now) - Number(start)
   let day = Math.floor(diff / (1000 * 60 * 60 * 24))
   while (day > answers.length) {
     day -= answers.length
   }
+  return day
+}
+
+export function getWordOfTheDay(day: number) {
   return answers[day]
 }
 

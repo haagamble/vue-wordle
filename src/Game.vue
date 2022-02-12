@@ -1,11 +1,13 @@
 <script setup lang="ts">
 import { onUnmounted } from 'vue'
-import { getWordOfTheDay, allWords } from './words'
+import { getWordOfTheDay, getDayNumber, allWords } from './words'
 import Keyboard from './Keyboard.vue'
 import { LetterState } from './types'
 
 // Get word of the day
-const answer = getWordOfTheDay()
+// Modifed as in github.com/digitaltolkien/vue-wordle
+const dayNumber = getDayNumber()
+const answer = getWordOfTheDay(dayNumber)
 
 // Board state. Each tile is represented as { letter, state }
 const board = $ref(
@@ -176,6 +178,7 @@ function genResultGrid() {
     <div class="message" v-if="message">
       {{ message }}
       <pre v-if="grid">{{ grid }}</pre>
+      Tajik Wordle #{{ dayNumber }}
     </div>
   </Transition>
   <header>
