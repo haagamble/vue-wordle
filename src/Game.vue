@@ -204,16 +204,7 @@ function genResultGrid() {
       >Source</a
     >
   </header>
-  // <div id="mode">
-  //   <button class="modebutton" 
-  //     @click="toggle"
-  //     :class="[daily ? 'active' : '']"
-  //   >Random</button>
-  //   <button class="modebutton" 
-  //     @click="toggle"
-  //     :class="[daily ? 'active' : '']"
-  //   >Daily Word</button>
-  // </div>
+
   <div id="board">
     <div
       v-for="(row, index) in board"
