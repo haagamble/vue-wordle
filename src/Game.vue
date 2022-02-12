@@ -6,15 +6,18 @@ import { LetterState } from './types'
 
 // Get word of the day
 // Modifed as in github.com/digitaltolkien/vue-wordle
-let daily = true;
+//let daily = true;
 
-if (daily == true) {
-  const dayNumber = getDayNumber()
-  const answer = getWordOfTheDay(dayNumber)
-}
-else {
-  const answer = getRandomWord()
-}  
+const dayNumber = getDayNumber()
+const answer = getWordOfTheDay(dayNumber)
+
+// if (daily == true) {
+//   const dayNumber = getDayNumber()
+//   const answer = getWordOfTheDay(dayNumber)
+// }
+// else {
+//   const answer = getRandomWord()
+// }  
 
 // Board state. Each tile is represented as { letter, state }
 const board = $ref(
@@ -179,10 +182,10 @@ function genResultGrid() {
     .join('\n')
 }
 
-function toggle() {
-  daily = !daily
-}
-</script>
+// function toggle() {
+//   daily = !daily
+// }
+// </script>
 
 <template>
   <Transition>
@@ -201,16 +204,16 @@ function toggle() {
       >Source</a
     >
   </header>
-  <div id="mode">
-    <button class="modebutton" 
-      @click="toggle"
-      :class="[daily ? 'active' : '']"
-    >Random</button>
-    <button class="modebutton" 
-      @click="toggle"
-      :class="[daily ? 'active' : '']"
-    >Daily Word</button>
-  </div>
+  // <div id="mode">
+  //   <button class="modebutton" 
+  //     @click="toggle"
+  //     :class="[daily ? 'active' : '']"
+  //   >Random</button>
+  //   <button class="modebutton" 
+  //     @click="toggle"
+  //     :class="[daily ? 'active' : '']"
+  //   >Daily Word</button>
+  // </div>
   <div id="board">
     <div
       v-for="(row, index) in board"
