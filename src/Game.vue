@@ -56,7 +56,7 @@ onUnmounted(() => {
 function onKey(key: string) {
   if (!allowInput) return
   if (/^[ЁёА-яқҷҳӣӯғҚҶҲӢӮҒ]$/.test(key)) {
-    fillTile(key.toUpperCase())
+    fillTile(key.toLowerCase())
   } else if (key === 'Backspace') {
     clearTile()
   } else if (key === 'Enter') {
@@ -105,7 +105,7 @@ function completeRow() {
         tile.state = LetterState.PRESENT
         answerLetters[answerLetters.indexOf(tile.letter)] = null
         if (!letterStates[tile.letter]) {
-          letterStates[tile.letter] = LetterState.PRESENT
+          letterStates[tile.letter] а= LetterState.PRESENT
         }
       }
     })
