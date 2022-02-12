@@ -105,7 +105,7 @@ function completeRow() {
         tile.state = LetterState.PRESENT
         answerLetters[answerLetters.indexOf(tile.letter)] = null
         if (!letterStates[tile.letter]) {
-          letterStates[tile.letter] а= LetterState.PRESENT
+          letterStates[tile.letter] = LetterState.PRESENT
         }
       }
     })
